@@ -119,7 +119,7 @@ DevId = Config.DevId
 SudoIds = {Config.SudoIds,1342680269}
 Milanu = Config.Milanu
 TokenBot = Config.TokenBot
-NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ريكس')
+NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ميلانو')
 FilesPrint = "\27[35m".."\nAll Source Files Started ↬ ⤈ \n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"..'\27[m'
 FilesNumber = 0
 for v in io.popen('ls Files'):lines() do
@@ -1352,8 +1352,8 @@ end
 DeAlsh:del(Milanu.."Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
-if text and text:match('^'..(DeAlsh:get(Milanu..'Alsh:NameBot') or "ريكس")..' ') then
-data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..(DeAlsh:get(Milanu..'Alsh:NameBot') or "ريكس")..' ','')
+if text and text:match('^'..(DeAlsh:get(Milanu..'Alsh:NameBot') or "ميلانو")..' ') then
+data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..(DeAlsh:get(Milanu..'Alsh:NameBot') or "ميلانو")..' ','')
 end
 if data.message_.content_.text_ then
 local NewCmmd = DeAlsh:get(Milanu.."Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
@@ -1632,7 +1632,7 @@ end
 if ChatType == 'pv' then 
 if text == '/start' or text == 'رجوع ،🔙‘' then 
 if SecondSudo(msg) then 
-local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ريكس \n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
+local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ميلانو \n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
 local key = {
 {'وضع اسم البوت','↫ تحديث ⌁','وضع كليشه المطور'},
 {'↫ المطورين ⌁','↫ الاحصائيات ⌁'},
@@ -1660,7 +1660,7 @@ return false
 end end
 if text == '~ تعيين كلايش الاوامر ~' then 
 if SecondSudo(msg) then 
-local Sudo_Welcome = '⌁︙اهلا بك مجددا عزيزي المطور \n⌁︙اليك الازرار الخاصه بتعديل وتغيير كلايش سورس ريكس فقط اضغط على الامر الذي تريد تنفيذه'
+local Sudo_Welcome = '⌁︙اهلا بك مجددا عزيزي المطور \n⌁︙اليك الازرار الخاصه بتعديل وتغيير كلايش سورس ميلانو فقط اضغط على الامر الذي تريد تنفيذه'
 local key = {
 {'حذف كليشة الايدي','تعيين كليشة الايدي'},
 {'تعيين امر الاوامر'},
@@ -3007,7 +3007,7 @@ end end
 if SecondSudo(msg) then
 if text == 'جلب نسخه الكروبات' or text == 'جلب نسخه احتياطيه' or text == 'جلب النسخه الاحتياطيه' then
 local List = DeAlsh:smembers(Milanu..'Alsh:Groups') 
-local BotName = (DeAlsh:get(Milanu.."Alsh:NameBot") or 'ريكس')
+local BotName = (DeAlsh:get(Milanu.."Alsh:NameBot") or 'ميلانو')
 local GetJson = '{"BotId": '..Milanu..',"BotName": "'..BotName..'","GroupsList":{'  
 for k,v in pairs(List) do 
 LinkGroups = DeAlsh:get(Milanu.."Alsh:Groups:Links"..v)
@@ -3193,19 +3193,19 @@ end
 end
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == 'بوت' or text == 'بوتت' then 
-NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ريكس')
+NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ميلانو')
 local MilanuTEAM = {"لتكول بوت اسمي "..NameBot.." 😒🔪","اسمي القميل "..NameBot.." 😚♥️","عندي اسم تره 😒💔","صيحولي "..NameBot.." كافي بوت 😒🔪","انت البوت لك 😒💔"} 
 Dev_Alsh(msg.chat_id_, msg.id_, 1, MilanuTEAM[math.random(#MilanuTEAM)] , 1, 'html') 
 return false
 end
 if text == 'اسم البوت' or text == 'البوت شنو اسمه' or text == 'شسمه البوت' or text == 'البوت شسمه' then
-NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ريكس') 
+NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ميلانو') 
 local MilanuTEAM = {"اسمي القميل "..NameBot.." 😚♥️","هلاا يروحيي وياكك "..NameBot.." 😻♥️"} 
 Dev_Alsh(msg.chat_id_, msg.id_, 1, MilanuTEAM[math.random(#MilanuTEAM)] , 1, 'html') 
 return false
 end
-if text and text == (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ريكس') then 
-NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ريكس')
+if text and text == (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ميلانو') then 
+NameBot = (DeAlsh:get(Milanu..'Alsh:NameBot') or 'ميلانو')
 local MilanuTEAM = {'😸♥️ هلا كلبي وياك '..NameBot..' تفضل','ترةه مصختهاا احجيي شرايد 😕😒💔','اطلقق واحدد يصيح '..NameBot..' 😻♥️','خبصتت امنةة شتريدد عااد 🤧😒💔'} 
 Dev_Alsh(msg.chat_id_, msg.id_, 1, MilanuTEAM[math.random(#MilanuTEAM)] , 1, 'html') 
 return false 
@@ -3221,7 +3221,7 @@ if text ==  'حذف رسائلي' and ChCheck(msg) or text ==  'مسح رسائ�
 if text ==  'حذف نقاطي' and ChCheck(msg) or text ==  'مسح نقاطي' and ChCheck(msg) then DeAlsh:del(Milanu..'Alsh:GamesNumber'..msg.chat_id_..msg.sender_user_id_) Dev_Alsh(msg.chat_id_, msg.id_, 1, '⌁︙تم حذف جميع نقاطك', 1, 'md') end
 if text == 'سمايلات' and ChCheck(msg) or text == 'السمايلات' and ChCheck(msg) then
 if not DeAlsh:get(Milanu..'Alsh:Lock:Games'..msg.chat_id_) then
-DeAlsh2 = {'🍏','🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🍍','🥥','🥝','🍅','🍆','🥑','🥦','🥒','🌶','🌽','🥕','🥔','🍠','🥐','🍞','🥖','🥨','🧀','🥚','🍳','🥞','🥓','🥩','🍗','🍖','🌭','🍔','🍟','🍕','🥪','🥙','🍼','☕️','🍵','🥤','🍶','🍺','🍻','🏀','⚽️','🏈','⚾️','🎾','🏐','🏉','🎱','🏓','🏸','🥅','🎰','🎮','🎳','🎯','🏆','🎻','🎸','🎺','🥁','🎹','🎼','🎧','??','🎬','🎨','🎭','🎪','🛎','📤','🎗','🏵','🎖','🏆','🥌','🛷','🚕','🚗','🚙','🚌','🚎','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔️','🛡','🔮','🌡','💣','⏱','🛢','📓','📗','📂','📅','📪','📫','📬','📭','⏰','📺','🎚','☎️','📡'}
+DeAlsh2 = {'🍏','🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🍍','🥥','🥝','🍅','🍆','🥑','🥦','🥒','🌶','🌽','🥕','🥔','🍠','🥐','🍞','🥖','🥨','🧀','🥚','🍳','🥞','🥓','🥩','🍗','🍖','🌭','🍔','🍟','🍕','🥪','🥙','🍼','☕️','🍵','🥤','🍶','🍺','🍻','🏀','⚽️','🏈','⚾️','🎾','🏐','🏉','🎱','🏓','🏸','🥅','🎰','🎮','🎳','🎯','🏆','🎻','🎸','🎺','??','🎹','🎼','🎧','🎤','🎬','🎨','🎭','🎪','🛎','📤','🎗','🏵','🎖','🏆','🥌','🛷','🚕','🚗','🚙','🚌','🚎','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔️','🛡','🔮','🌡','💣','⏱','🛢','📓','📗','📂','📅','📪','📫','📬','📭','⏰','📺','🎚','☎️','📡'}
 name = DeAlsh2[math.random(#DeAlsh2)]
 DeAlsh:set(Milanu..'Alsh:GameNum'..msg.chat_id_,name)
 DeAlsh:del(Milanu..'Alsh:Games:Ids'..msg.chat_id_)
@@ -9064,7 +9064,7 @@ if text == 'جلب نسخه السورس' then
 if not Sudo(msg) then
 Dev_Alsh(msg.chat_id_, msg.id_, 1, '⌁︙للمطور الاساسي فقط ', 1, 'md')
 else
-sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, './Milanu.lua', '⌁︙نسخة ملف سورس ريكس',dl_cb, nil)
+sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, './Milanu.lua', '⌁︙نسخة ملف سورس ميلانو',dl_cb, nil)
 end end
 if text == 'روابط الكروبات' or text == 'روابط المجموعات' then
 if not SecondSudo(msg) then
@@ -10049,7 +10049,7 @@ Dev_Alsh(msg.chat_id_, msg.id_, 1, (Help or Text), 1, 'md')
 end
 if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
-Dev_Alsh(msg.chat_id_, msg.id_, 1, '⌁︙جاري تحديث سورس ريكس', 1, 'md') 
+Dev_Alsh(msg.chat_id_, msg.id_, 1, '⌁︙جاري تحديث سورس ميلانو', 1, 'md') 
 os.execute('rm -rf Milanu.lua') 
 os.execute('wget https://raw.githubusercontent.com/MilanuTEAM/Milanu/master/Milanu.lua') 
 dofile('Milanu.lua') 
@@ -10083,7 +10083,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n⌁︙قائمة ملفات متجر سورس ريكس\n⌁︙الملفات المتوفره حاليا ↫ ⤈\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
+local TextS = "\n⌁︙قائمة ملفات متجر سورس ميلانو\n⌁︙الملفات المتوفره حاليا ↫ ⤈\n┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n"
 local TextE = "┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙علامة ↫ (✔) تعني الملف مفعل\n⌁︙علامة ↫ (✖️) تعني الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
