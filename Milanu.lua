@@ -4041,20 +4041,14 @@ if text == "مشاهده المنشور" and ChCheck(msg) or text == "مشاهد
 DevAbs:set(Milanu..'Abs:viewget'..msg.sender_user_id_,true)
 Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
-if text == "السورس" or text == "سورس" then 
-local text =  [[
-Welcome To Source
-⌁︙ReXs TEAM
-┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/GVVVV6)
-
-⌁︙[Exp Source](https://t.me/QQOQQD)
-
-⌁︙[Developer](https://t.me/OR_33)
-┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Tws ReXs](https://t.me/xcz3bot)
-]]
-Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
+Text = "W𝙴𝙻𝙲𝙾𝙼𝙴 T𝙾 S𝙾𝚞𝚁𝙲𝙴 𝙼𝙴𝙻𝙰𝙽𝙾˼\n\n[- S𝙾𝚞𝚁𝙲𝙴 C𝙷𝙰𝙽𝙽𝙴𝙻  .](http://t.me/qqoqqd)\n\n[-  E𝚇𝙿 S𝙾𝚞𝚁𝙲𝙴 .](http://t.me/qqoqqd)\n\n[-  D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁  .](http://t.me/or_33)\n\n[-  T𝚆𝚂 M𝙴𝙻𝙰𝙽𝙾 .ث](https://t.me/xcz3bot)"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '✫: S𝙾𝚞𝚁𝙲𝙴 M𝙴𝙻𝙰𝙽𝙾 .',url="https://t.me/qqoqqd"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/HMBots&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
