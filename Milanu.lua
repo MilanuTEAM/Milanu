@@ -4041,6 +4041,19 @@ if text == "مشاهده المنشور" and ChCheck(msg) or text == "مشاهد
 DeAlsh:set(Milanu..'Alsh:viewget'..msg.sender_user_id_,true)
 De_Alsh(msg.chat_id_, msg.id_, 1, '✵ حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
+if text == "السورس" or text == "سورس" or text == "ياسورس" or text == "سورس منو" then  
+local text =  [[
+W𝙴𝙻𝙲𝙾𝙼𝙴 T𝙾 S𝙾𝚞𝚁𝙲𝙴 𝙼𝙴𝙻𝙰𝙽𝙾˼
+┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
+✵ [S𝙾𝚞𝚁𝙲𝙴 C𝙷𝙰𝙽𝙽𝙴𝙻](https://t.me/GVVVV6)
+
+✵ [E𝚇𝙿 S𝙾𝚞𝚁𝙲𝙴](https://t.me/QQOQQD)
+
+✵ [D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁](https://t.me/OR_33)
+┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
+✵ [T𝚆𝚂 M𝙴𝙻𝙰𝙽𝙾](https://t.me/xcz3bot)
+]]
+Dev_Abs(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 if ChatType == 'sp' or ChatType == 'gp'  then
 if text == "اطردني" and ChCheck(msg) or text == "ادفرني" and ChCheck(msg) then
 if DeAlsh:get(Milanu.."Alsh:Kick:Me"..msg.chat_id_) then
@@ -4140,15 +4153,6 @@ end
 if text == "رسائلي" and msg.reply_to_message_id_ == 0 and ChCheck(msg) then
 local user_msgs = DeAlsh:get(Milanu..'Alsh:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_)
 De_Alsh(msg.chat_id_, msg.id_, 1, "✵ عدد رسائلك هنا ↫ *❨ "..user_msgs.." ❩*", 1, 'md')
-end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then
-Text = "W𝙴𝙻𝙲𝙾𝙼𝙴 T𝙾 S𝙾𝚞𝚁𝙲𝙴 𝙼𝙴𝙻𝙰𝙽𝙾\n\n[- S𝙾𝚞𝚁𝙲𝙴 C𝙷𝙰𝙽𝙽𝙴𝙻  .](http://t.me/qqoqqd)\n\n[-  E𝚇𝙿 S𝙾𝚞𝚁𝙲𝙴 .](http://t.me/qqoqqd)\n\n[-  D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁  .](http://t.me/or_33)\n\n[-  T𝚆𝚂 M𝙴𝙻𝙰𝙽𝙾 .ث](https://t.me/xcz3bot)"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '✫: S𝙾𝚞𝚁𝙲𝙴 M𝙴𝙻𝙰𝙽𝙾 .',url="https://t.me/qqoqqd"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/HMBots&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == "التفاعل" and ChCheck(msg) then
 local EntryNumber = (DeAlsh:get(Milanu..'Alsh:EntryNumber'..msg.chat_id_..':'..os.date('%d')) or 0)
