@@ -4045,7 +4045,7 @@ if text == "السورس" or text == "سورس" then
 local text =  [[
 W𝙴𝙻𝙲𝙾𝙼𝙴 T𝙾 S𝙾𝚞𝚁𝙲𝙴 𝙼𝙴𝙻𝙰𝙽𝙾˼
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[S𝙾𝚞𝚁𝙲𝙴 C𝙷𝙰𝙽𝙽𝙴𝙻](https://t.me/QQOWQD)
+⌁︙[S𝙾𝚞𝚁𝙲𝙴 C𝙷𝙰𝙽𝙽𝙴𝙻](https://t.me/QQOQQD)
 
 ⌁︙[E𝚇𝙿 S𝙾𝚞𝚁𝙲𝙴](https://t.me/QQOQQD)
 
