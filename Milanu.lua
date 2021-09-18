@@ -911,44 +911,44 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end 
 end
 if DataText and DataText:match('/DelRed:'..tonumber(data.sender_user_id_)..'(.*)') then
-local Abbs = DataText:match('/DelRed:'..tonumber(data.sender_user_id_)..'(.*)')
-EditMsg(Chat_Id2, Msg_Id2, "✵ الكلمه ↫ "..Abbs.." تم حذفها") 
-DeAlsh:del(Milanu..'Alsh:Text:GpTexts'..Abbs..data.chat_id_)
-DeAlsh:srem(Milanu..'Alsh:Manager:GpRedod'..data.chat_id_,Abbs)
+local Ali = DataText:match('/DelRed:'..tonumber(data.sender_user_id_)..'(.*)')
+EditMsg(Chat_Id2, Msg_Id2, "✵ الكلمه ↫ "..Ali.." تم حذفها") 
+DeAlsh:del(Milanu..'Alsh:Text:GpTexts'..Ali..data.chat_id_)
+DeAlsh:srem(Milanu..'Alsh:Manager:GpRedod'..data.chat_id_,Ali)
 end
 if DataText and DataText:match('/EndRedod:'..tonumber(data.sender_user_id_)..'(.*)') then
-local Abbs = DataText:match('/EndRedod:'..tonumber(data.sender_user_id_)..'(.*)')
-local List = DeAlsh:smembers(Milanu..'Alsh:Text:GpTexts'..Abbs..data.chat_id_)
+local Ali = DataText:match('/EndRedod:'..tonumber(data.sender_user_id_)..'(.*)')
+local List = DeAlsh:smembers(Milanu..'Alsh:Text:GpTexts'..Ali..data.chat_id_)
 if DeAlsh:get(Milanu..'Alsh:Add:GpRedod'..data.sender_user_id_..data.chat_id_) then
-EditMsg(Chat_Id2, Msg_Id2, "✵ تم انهاء وحفظ ↫ "..#List.." من الردود المتعدده للامر ↫ "..Abbs) 
+EditMsg(Chat_Id2, Msg_Id2, "✵ تم انهاء وحفظ ↫ "..#List.." من الردود المتعدده للامر ↫ "..Ali) 
 DeAlsh:del(Milanu..'Alsh:Add:GpRedod'..data.sender_user_id_..data.chat_id_)
 else
 EditMsg(Chat_Id2, Msg_Id2, "✵ عذرا صلاحية الامر منتهيه !") 
 end
 end
 if DataText and DataText:match('/DelRedod:'..tonumber(data.sender_user_id_)..'(.*)') then
-local Abbs = DataText:match('/DelRedod:'..tonumber(data.sender_user_id_)..'(.*)')
+local Ali = DataText:match('/DelRedod:'..tonumber(data.sender_user_id_)..'(.*)')
 if DeAlsh:get(Milanu..'Alsh:Add:GpRedod'..data.sender_user_id_..data.chat_id_) then
-EditMsg(Chat_Id2, Msg_Id2, "✵ تم الغاء عملية حفظ الردود المتعدده للامر ↫ "..Abbs) 
+EditMsg(Chat_Id2, Msg_Id2, "✵ تم الغاء عملية حفظ الردود المتعدده للامر ↫ "..Ali) 
 DeAlsh:del(Milanu..'Alsh:Add:GpRedod'..data.sender_user_id_..data.chat_id_)
-DeAlsh:del(Milanu..'Alsh:Text:GpTexts'..Abbs..data.chat_id_)
+DeAlsh:del(Milanu..'Alsh:Text:GpTexts'..Ali..data.chat_id_)
 DeAlsh:del(Milanu..'Alsh:Add:GpTexts'..data.sender_user_id_..data.chat_id_)
-DeAlsh:srem(Milanu..'Alsh:Manager:GpRedod'..data.chat_id_,Abbs)
+DeAlsh:srem(Milanu..'Alsh:Manager:GpRedod'..data.chat_id_,Ali)
 else
 EditMsg(Chat_Id2, Msg_Id2, "✵ عذرا صلاحية الامر منتهيه !") 
 end
 end
 if DataText and DataText:match('/HideHelpList:(.*)') then
-local Abbs = DataText:match('/HideHelpList:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HideHelpList:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 EditMsg(Chat_Id2, Msg_Id2, "✵ تم اخفاء كليشة الاوامر") 
 else
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا الامر ليس لك .")..'&show_alert=true')
 end
 end
 if DataText and DataText:match('/HelpList:(.*)') then
-local Abbs = DataText:match('/HelpList:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 local Help = DeAlsh:get(Milanu..'Alsh:Help')
 local Text = [[
 ✵ اهلا بك في قائمة الاوامر ↫ ⤈ 
@@ -970,8 +970,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList1:(.*)') then
-local Abbs = DataText:match('/HelpList1:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList1:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 if not Admin(data) then
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا ليس لديك صلاحية التحكم لهذا الامر .")..'&show_alert=true')
 end
@@ -1032,8 +1032,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList2:(.*)') then
-local Abbs = DataText:match('/HelpList2:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList2:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 if not Admin(data) then
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا ليس لديك صلاحية التحكم لهذا الامر .")..'&show_alert=true')
 end
@@ -1102,8 +1102,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList3:(.*)') then
-local Abbs = DataText:match('/HelpList3:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList3:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 if not Admin(data) then
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا ليس لديك صلاحية التحكم لهذا الامر .")..'&show_alert=true')
 end
@@ -1161,8 +1161,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList4:(.*)') then
-local Abbs = DataText:match('/HelpList4:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList4:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 if not Admin(data) then
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا ليس لديك صلاحية التحكم لهذا الامر .")..'&show_alert=true')
 end
@@ -1214,8 +1214,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList5:(.*)') then
-local Abbs = DataText:match('/HelpList5:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList5:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 if not Admin(data) then
 return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("⌁ عذرا ليس لديك صلاحية التحكم لهذا الامر .")..'&show_alert=true')
 end
@@ -1294,8 +1294,8 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackq
 end
 end
 if DataText and DataText:match('/HelpList6:(.*)') then
-local Abbs = DataText:match('/HelpList6:(.*)')
-if tonumber(Abbs) == tonumber(data.sender_user_id_) then
+local Ali = DataText:match('/HelpList6:(.*)')
+if tonumber(Ali) == tonumber(data.sender_user_id_) then
 local Help = DeAlsh:get(Milanu..'Alsh:Help6')
 local Text = [[
 ✵ اوامر الاعضاء ↫ ⤈
