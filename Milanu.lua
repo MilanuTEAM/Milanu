@@ -2626,13 +2626,13 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 local url,res = https.request('http://sofarr.ml/ASHTRAKLUA/melanyi.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'⌯︙شترك في قناة السورس اولآ @QQOQQD .')
+send(msg.chat_id_,msg.id_,'⌯︙شترك في قناة السورس اولآ @GVVVV6 .')
 return false 
 end
 Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙼𝙸𝙻𝙰𝙽𝚞\n\n[⌯  𝙼𝙸𝙻𝙰𝙽𝚞 ᴄʜᴀɴɴᴇʟ](http://t.me/qqoqqd)\n\n[⌯  D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 ](http://t.me/OR_33)\n\n[⌯ 𝙼𝙸𝙻𝙰𝙽𝚞 D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁](http://t.me/OR_33)\n\n[⌯  𝚃𝚆𝚂 𝙼𝙴𝙻𝙰𝙽𝙾](http://t.me/xcz3bot)"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌯ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙼𝙸𝙻𝙰𝙽𝚞',url="t.me/MUZK1BOT"}},
+{{text = '⌯ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙼𝙸𝙻𝙰𝙽𝚞',url="t.me/qqoqqd"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/qqoqqd&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
