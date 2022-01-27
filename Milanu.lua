@@ -2651,6 +2651,109 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+if SecondSudo(msg) then
+if text == 'جلب النسخه' and SudoBot(msg) then
+local Groups = DevAbs:smembers(Milanu..'Abs:Groups')  
+local UsersBot = DevAbs:smembers(Milanu..'Abs:Users')  
+local Get_Json = '{"BotId": '..Milanu..','  
+if #UsersBot ~= 0 then 
+Get_Json = Get_Json..'"UsersBot":['  
+for k,v in pairs(UsersBot) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..']'
+end
+Get_Json = Get_Json..',"GroupsBot":{'
+for k,v in pairs(Groups) do   
+local Malk = DevAbs:smembers(Milanu..":Abs:AbsConstructor:"..v)
+local President = DevAbs:smembers(Milanu.."Abs:BasicConstructor:"..v)
+local Constructor = DevAbs:smembers(Milanu..":Abs:Constructor:"..v)
+local Manager = DevAbs:smembers(Milanu.."Abs:Managers:"..v)
+local Admin = DevAbs:smembers(Milanu.."Abs:Admins:"..v)
+local Vips = DevAbs:smembers(Milanu.."Abs:VipMem:"..v)
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'":{'
+else
+Get_Json = Get_Json..',"'..v..'":{'
+end
+if #Malk ~= 0 then 
+Get_Json = Get_Json..'"Malk":['
+for k,v in pairs(Malk) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #President ~= 0 then 
+Get_Json = Get_Json..'"President":['
+for k,v in pairs(President) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Constructor ~= 0 then
+Get_Json = Get_Json..'"Constructor":['
+for k,v in pairs(Constructor) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Manager ~= 0 then
+Get_Json = Get_Json..'"Manager":['
+for k,v in pairs(Manager) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Admin ~= 0 then
+Get_Json = Get_Json..'"Admin":['
+for k,v in pairs(Admin) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Vips ~= 0 then
+Get_Json = Get_Json..'"Vips":['
+for k,v in pairs(Vips) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+Get_Json = Get_Json..'"Dev":"558"}'
+end
+Get_Json = Get_Json..'}}'
+local File = io.open('./'..Milanu..'.json', "w")
+File:write(Get_Json)
+File:close()
+return sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, './'..Milanu..'.json', '',dl_cb, nil)
+end
 if text == 'جلب نسخه الاحتياطيه' and DevMilanuW(msg) then  
 GetFile_Bot(msg)
 end
