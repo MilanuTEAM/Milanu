@@ -2651,6 +2651,109 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+if SecondSudo(msg) then
+if text == 'جلب النسخه' and SudoBot(msg) then
+local Groups = DevAbs:smembers(SNAYBIR..'Abs:Groups')  
+local UsersBot = DevAbs:smembers(SNAYBIR..'Abs:Users')  
+local Get_Json = '{"BotId": '..SNAYBIR..','  
+if #UsersBot ~= 0 then 
+Get_Json = Get_Json..'"UsersBot":['  
+for k,v in pairs(UsersBot) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..']'
+end
+Get_Json = Get_Json..',"GroupsBot":{'
+for k,v in pairs(Groups) do   
+local Malk = DevAbs:smembers(SNAYBIR..":Abs:AbsConstructor:"..v)
+local President = DevAbs:smembers(SNAYBIR.."Abs:BasicConstructor:"..v)
+local Constructor = DevAbs:smembers(SNAYBIR..":Abs:Constructor:"..v)
+local Manager = DevAbs:smembers(SNAYBIR.."Abs:Managers:"..v)
+local Admin = DevAbs:smembers(SNAYBIR.."Abs:Admins:"..v)
+local Vips = DevAbs:smembers(SNAYBIR.."Abs:VipMem:"..v)
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'":{'
+else
+Get_Json = Get_Json..',"'..v..'":{'
+end
+if #Malk ~= 0 then 
+Get_Json = Get_Json..'"Malk":['
+for k,v in pairs(Malk) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #President ~= 0 then 
+Get_Json = Get_Json..'"President":['
+for k,v in pairs(President) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Constructor ~= 0 then
+Get_Json = Get_Json..'"Constructor":['
+for k,v in pairs(Constructor) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Manager ~= 0 then
+Get_Json = Get_Json..'"Manager":['
+for k,v in pairs(Manager) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Admin ~= 0 then
+Get_Json = Get_Json..'"Admin":['
+for k,v in pairs(Admin) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+if #Vips ~= 0 then
+Get_Json = Get_Json..'"Vips":['
+for k,v in pairs(Vips) do
+if k == 1 then
+Get_Json = Get_Json..'"'..v..'"'
+else
+Get_Json = Get_Json..',"'..v..'"'
+end
+end   
+Get_Json = Get_Json..'],'
+end
+Get_Json = Get_Json..'"Dev":"558"}'
+end
+Get_Json = Get_Json..'}}'
+local File = io.open('./'..Milanu..'.json', "w")
+File:write(Get_Json)
+File:close()
+return sendDocument(msg.chat_id_, msg.id_, 0, 1, nil, './'..Milanu..'.json', '',dl_cb, nil)
+end
 if text == 'جلب نسخه الاحتياطيه' and DevMilanuW(msg) then  
 GetFile_Bot(msg)
 end
@@ -4330,7 +4433,7 @@ t = " *⌯︙لا يوجد منشئين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "المنشئ" then
+if text ==("المنشئ") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -4338,25 +4441,15 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_," *⋄︙حساب المنشئ محذوف*")
+send(msg.chat_id_, msg.id_," *⌯︙حساب المنشئ محذوف*")
 return false  
 end
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = owner_id,offset_ = 0,limit_ = 1},function(arg,getpro) 
-if getpro.photos_[0] then
-Name = '*المنشئ ⇠* ['..b.first_name_..'](tg://user?id='..b.id_..')\n'
-Name = Name..'*البايو ⇠* ['..getbio(owner_id)..']\n'
-keyboard = {}
-keyboard.inline_keyboard = {{{text = ''..b.first_name_..'', url = "https://t.me/"..b.username_..""}},}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Name)..'&photo='..getpro.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-else
-send(msg.chat_id_,msg.id_,Name)
-end
-end,nil)   
+local UserName = (b.username_ or "qqoqqd")
+send(msg.chat_id_, msg.id_," ⌯︙منشئ الكروب » ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
-end,nil)  
+end,nil)   
 end
 if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) and GetChannelMember(msg) then  
 function start_function(extra, result, success)
@@ -7002,25 +7095,15 @@ database:del(bot_id.."Link_Group:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_," *⌯︙تم تعطيل الرابط*") 
 return false end
 end
-if text == "المطور" or text == "مطور" then
-local TEXT_SUD = database:get(bot_id..'Milanu:TEXT_SUDO')
+if text == 'المطور' or text == 'مطور' then
+local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
 send(msg.chat_id_, msg.id_,TEXT_SUDO)
 else
-tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = SUDO,offset_ = 0,limit_ = 1},function(arg,getpro) 
-if getpro.photos_[0] then
-Name = '*المطور ~⪼* ['..result.first_name_..'](tg://user?id='..result.id_..')\n'
-Name = Name..'*البايو ~⪼* ['..getbio(SUDO)..']\n'
-keyboard = {}
-keyboard.inline_keyboard = {{{text = ''..result.first_name_..'', url = "https://t.me/"..result.username_..""}},}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Name)..'&photo='..getpro.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-else
-send(msg.chat_id_, msg.id_,Name,1, 'md')
-end
-end,nil)   
-end,nil)   
+tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+end,nil)
 end
 end
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
@@ -9614,7 +9697,7 @@ database:set(bot_id.." amir:zhrf_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." amir:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://vvvzvv.ml/amirZhfa/Teland.php?en='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://vvvzvv.ml/amirZhfa/Milanu.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n*⌯︙قائمه الزخرفه* \nٴ⌯∫ٴ*•━━━━━━ 𝑴𝑬 ━━━━━━━•*ٴ⌯∫○ٴ \n"
 i = 0
@@ -9634,7 +9717,7 @@ database:set(bot_id.." amir:brj_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.." amir:brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://apiAlsh.ml/brg.php?brg='..URL.escape(Textbrj)..'')
+gk = https.request('https://vvvzvv.ml/amirBrg/Milanu.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
 i = 0
 for k,v in pairs(br.ok) do
@@ -9657,7 +9740,7 @@ database:set(bot_id.." amir:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.." amir:age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://vvvzvv.ml/amirOmr/Teland.php?age='..URL.escape(Textage)..'')
+ge = https.request('https://vvvzvv.ml/amirOmr/Milanu.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
 i = 0
 for k,v in pairs(ag.ok) do
@@ -9761,7 +9844,7 @@ end
 send(msg.chat_id_, msg.id_,"⌯︙تم مسح الميديا بنجاح")
 end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
-data,res = https.request('https://vvvzvv.ml/amirVois/Teland.php')
+data,res = https.request('https://vvvzvv.ml/amirVois/Milanu.php')
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
